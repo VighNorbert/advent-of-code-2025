@@ -22,15 +22,13 @@ if (!fs.existsSync(file)) {
 		file,
 		`const parse = (s: string) => s.trim().split('\\n');
 
-export const function1 = (s: string) => {
+export const first = (s: string) => {
 \treturn 0;
 };
-exports.first = function1;
 
-export const function2 = (s: string) => {
+export const second = (s: string) => {
 \treturn 0;
 };
-exports.second = function2;
 `
 	);
 }
@@ -40,27 +38,26 @@ const testFile = `./tests/day${d}.test.ts`;
 if (!fs.existsSync(testFile)) {
 	fs.writeFileSync(
 		testFile,
-		`import { function1, function2 } from '../src/day${d}';
+		`import { first, second } from '../src/day${d}';
 
 const input = \`\`;
 
 test('day ${d}-1', () => {
-\texpect(function1(input)).toBe(-1);
+\texpect(first(input)).toBe(-1);
 });
 
 test('day ${d}-2', () => {
-\texpect(function2(input)).toBe(-1);
+\texpect(second(input)).toBe(-1);
 });
 `
 	);
 }
 
 const callback = require(`./day${d}.ts`)[type];
-const headers = { cookie, "user-agent": ua };
+const headers = { cookie, 'user-agent': ua };
 const inputFile = `${__dirname}/../input/day${day
 	.toString()
 	.padStart(2, '0')}.in`;
-
 
 try {
 	const rawData = fs.readFileSync(inputFile, 'utf8');
