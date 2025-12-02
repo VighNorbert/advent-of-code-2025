@@ -12,7 +12,7 @@ export function first(s: string) {
 		acc = (acc + 100) % 100;
 		if (acc === 0) result++;
 		return acc;
-	}, 50)
+	}, 50);
 	return result;
 }
 
@@ -30,8 +30,7 @@ export function second(s: string) {
 		result += Math.floor(steps / 100);
 		if (acc <= 0 || acc >= 100) result++;
 		acc = (acc + 100) % 100;
-		console.log("IN:", x, "\nOUT:", acc, "\nRESULT:", result, "\n--------------------------------");
 		return acc;
-	}, 50)
+	}, 50);
 	return result;
 }

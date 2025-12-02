@@ -61,7 +61,6 @@ const inputFile = `${__dirname}/../input/day${day
 	.toString()
 	.padStart(2, '0')}.in`;
 
-console.log(`https://adventofcode.com/${year}/day/${day}/input`)
 
 try {
 	const rawData = fs.readFileSync(inputFile, 'utf8');
