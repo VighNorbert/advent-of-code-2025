@@ -6,8 +6,8 @@ const ua = 'User-Agent=AoC2025 Input reader 1.0';
 
 const year = '2025';
 const day = parseInt(process.argv[2], 10);
-if (Number.isNaN(day) || day < 1 || day > 25) {
-	console.error('You have to choose a day between 1 and 25');
+if (Number.isNaN(day) || day < 1 || day > 12) {
+	console.error('You have to choose a day between 1 and 12');
 	console.error('For example: node src/index.js 1');
 	process.exit(1);
 }
