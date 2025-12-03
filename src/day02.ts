@@ -16,19 +16,19 @@ const duplicate = (num: number) => nplicate(num, 2);
 export const first = (s: string) => {
 	return parse(s)
 		.flatMap(([start, end]) =>
-			range([
-				Math.ceil(len(start) / 2),
-				Math.floor(len(end) / 2),
-			]).flatMap((halfLength) => {
-				const results: number[] = [];
-				for (
-					let part = Math.floor(start / 10 ** halfLength);
-					duplicate(part) <= end;
-					part++
-				)
-					if (duplicate(part) >= start) results.push(duplicate(part));
-				return results;
-			})
+			range(Math.ceil(len(start) / 2), Math.floor(len(end) / 2)).flatMap(
+				(halfLength) => {
+					const results: number[] = [];
+					for (
+						let part = Math.floor(start / 10 ** halfLength);
+						duplicate(part) <= end;
+						part++
+					)
+						if (duplicate(part) >= start)
+							results.push(duplicate(part));
+					return results;
+				}
+			)
 		)
 		.reduce(sum);
 };
@@ -37,12 +37,12 @@ export const second = (s: string) => {
 	return parse(s)
 		.flatMap(([start, end]) => {
 			const results = new Set<number>();
-			range([len(start), len(end)]).forEach((length) => {
-				range([1, Math.floor(length / 2)]).forEach((partLength) => {
-					range([
+			range(len(start), len(end)).forEach((length) => {
+				range(1, Math.floor(length / 2)).forEach((partLength) => {
+					range(
 						Math.max(2, Math.ceil(len(start) / partLength)),
-						Math.floor(len(end) / partLength),
-					]).forEach((numParts) => {
+						Math.floor(len(end) / partLength)
+					).forEach((numParts) => {
 						for (
 							let part = 10 ** (partLength - 1);
 							len(part) == partLength &&
