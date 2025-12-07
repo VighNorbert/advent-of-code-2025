@@ -6,6 +6,7 @@ export const product = (a: number, b: number) => a * b;
 export const minmax = (arr: number[]) => [arr.reduce(min), arr.reduce(max)];
 export const range = (start: number, end: number) =>
 	[...Array(end - start + 1)].map((_, i) => i + start);
+export const distinct = <T>(arr: T[]) => Array.from(new Set(arr));
 
 export type Range = {
 	start: number;
