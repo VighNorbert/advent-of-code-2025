@@ -61,7 +61,12 @@ const inputFile = `${__dirname}/../input/day${day
 
 try {
 	const rawData = fs.readFileSync(inputFile, 'utf8');
-	console.log(callback(rawData));
+	const result = callback(rawData);
+	if (result instanceof Promise) {
+		result.then((res: any) => console.log(res));
+	} else {
+		console.log(result);
+	}
 } catch (e) {
 	https.get(
 		`https://adventofcode.com/${year}/day/${day}/input`,
@@ -75,7 +80,12 @@ try {
 			res.on('end', () => {
 				fs.writeFileSync(inputFile, rawData);
 				console.log('File written');
-				console.log(callback(rawData));
+				const result = callback(rawData);
+				if (result instanceof Promise) {
+					result.then((res: any) => console.log(res));
+				} else {
+					console.log(result);
+				}
 			});
 		}
 	);
