@@ -1,6 +1,6 @@
 # Advent of Code 2025 in Typescript
 
-![AoC 2025 badge](https://img.shields.io/badge/AoC%202025-22%2F24-orange)
+![AoC 2025 badge](https://img.shields.io/badge/AoC%202025-24%2F24-green)
 
 2025 fork of original code for AoC 2021 from atme: https://github.com/atme/advent-of-code-2021
 
